@@ -1,0 +1,26 @@
+<h1> Categorias </h1>
+<div>
+  <%= link_to 'Nova Categoria', new_category_path, class: 'btn btn-primary' %>
+</div>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Nome</th>
+      <th scope="col">Ações</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @categories.each do |category| %>
+      <tr>
+        <th scope="row"><%= category.id %></th>
+        <td><%= category.name %></td>
+        <td>
+          <%= link_to 'Editar', edit_category_path(category), class: 'btn btn-secondary' %>
+          <%= link_to 'Excluir', category_path(category), method: :delete, data: {confirm: 'Você tem certeza?'}, class: 'btn btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
