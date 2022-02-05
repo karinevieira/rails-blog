@@ -20,8 +20,9 @@ class ArticlesController < ApplicationController
     @article = Article.new(article_params)
  
     if @article.save
-      redirect_to @article
+      redirect_to @article, notice: 'Artigo criado com sucesso!'
     else
+      flash[:alert] = "Não foi possível criar o artigo"
       render :new
     end
   end
@@ -31,8 +32,9 @@ class ArticlesController < ApplicationController
 
   def update
     if @article.update(article_params)
-      redirect_to @article
+      redirect_to @article, notice: 'Artigo atualizado com sucesso!'
     else
+      flash[:alert] = "Não foi possível atualizar o artigo"
       render :edit
     end
   end
@@ -46,7 +48,7 @@ class ArticlesController < ApplicationController
   private
   
   def article_params
-    params.require(:article).permit(:title, :body)
+    params.require(:article).permit(:title, :body, :category_id)
   end
 
   def set_article
