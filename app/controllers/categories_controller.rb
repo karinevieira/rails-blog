@@ -1,10 +1,7 @@
 class CategoriesController < ApplicationController
-  before_action :set_category, only: [:show, :edit, :update, :destroy]
+  before_action :set_category, only: [:edit, :update, :destroy]
   def index
     @categories = Category.sorted
-  end
-
-  def show
   end
 
   def new
@@ -33,9 +30,11 @@ class CategoriesController < ApplicationController
   end
 
   def destroy
-    @category.destroy
-
-    redirect_to categories_path
+    if @category.destroy
+      redirect_to categories_path, notice: 'Categoria excluída com sucesso!'
+    else
+      redirect_to categories_path, alert: @category.errors.messages[:base][0]
+    end
   end
 
   private

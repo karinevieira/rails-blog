@@ -22,7 +22,7 @@ class ArticlesController < ApplicationController
     if @article.save
       redirect_to @article, notice: 'Artigo criado com sucesso!'
     else
-      flash[:alert] = "Não foi possível criar o artigo"
+      flash[:alert] = "Falha ao criar o artigo"
       render :new
     end
   end
@@ -34,15 +34,17 @@ class ArticlesController < ApplicationController
     if @article.update(article_params)
       redirect_to @article, notice: 'Artigo atualizado com sucesso!'
     else
-      flash[:alert] = "Não foi possível atualizar o artigo"
+      flash[:alert] = "Falha ao atualizar o artigo"
       render :edit
     end
   end
 
   def destroy
-    @article.destroy
-
-    redirect_to root_path
+    if @article.destroy
+      redirect_to root_path, notice: 'Artigo excluído com sucesso!'
+    else
+      redirect_to root_path, notice: 'Falha ao excluir artigo'
+    end
   end
 
   private
