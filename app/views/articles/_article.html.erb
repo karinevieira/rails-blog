@@ -1,6 +1,6 @@
 <article class="blog-post">
   <h2 class="blog-post-title"><%= article.title %></h2>
-  <p class="blog-post-meta"><%= article.created_at.strftime('%B %e, %Y') %> by <a href="#">Chris</a></p>
+  <p class="blog-post-meta"><%= article.created_at.strftime('%B %e, %Y') %> by <a href="#">Karine</a> in <%= article.category.name %></p>
 
   <p><%= truncate(article.body, length: 150) %></p>
 
