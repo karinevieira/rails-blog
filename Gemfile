@@ -29,6 +29,8 @@ gem 'bootstrap', '~> 5.1.3'
 gem 'simple_form'
 #Kaminari
 gem 'kaminari'
+#Groupdate
+gem "groupdate"
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
