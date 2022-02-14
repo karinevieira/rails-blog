@@ -1,5 +1,7 @@
 class ArticlesController < ApplicationController
   before_action :set_article, only: [:show, :edit, :update, :destroy]
+  before_action :set_categories, only: [:new, :create, :edit, :update]
+  
   def index
     @categories = Category.sorted
     category = @categories.select { |c| c.name == params[:category] }.first if params[:category].present?
@@ -19,7 +21,7 @@ class ArticlesController < ApplicationController
                        .filter_by_archive(params[:month_year])
                        .desc_order
                        .page(current_page)
-                       .per(2)
+                       .per(10)
 
     @archives = Article.group_by_month(:created_at, format: '%B %Y').count
     
@@ -71,5 +73,9 @@ class ArticlesController < ApplicationController
 
   def set_article
     @article = Article.find(params[:id])
+  end
+
+  def set_categories
+    @categories = Category.sorted
   end
 end
