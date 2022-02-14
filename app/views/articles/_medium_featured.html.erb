@@ -4,7 +4,7 @@
       <strong class="d-inline-block mb-2 text-primary"><%= article.category.name %></strong>
       <h3 class="mb-0"><%= article.title %></h3>
 
-      <div class="mb-1 text-muted"><%= article.created_at.strftime('%B %e') %></div>
+      <div class="mb-1 text-muted"><%= article.created_at.strftime('%B %e, %Y') %></div>
 
       <p class="card-text mb-auto"><%= truncate(article.body, length: 150) %></p>
 
