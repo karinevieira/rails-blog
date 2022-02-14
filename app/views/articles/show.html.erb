@@ -8,4 +8,30 @@
   <%= link_to 'Voltar', root_path, class: 'btn btn-primary' %>
   <%= link_to 'Editar', edit_article_path(@article), class: 'btn btn-secondary' %>
   <%= link_to 'Excluir', article_path(@article), method: :delete, data: {confirm: 'Você tem certeza?'}, class: 'btn btn-danger' %>
+
+  <div>
+    <h2 class="mt-3">Comentários</h2>
+    <% @article.comments.each do |comment| %>
+      <div class="card mb-3">
+        <div class="card-body">
+          <h5 class="card-title"><%= comment.created_at.strftime('%B %e, %Y') %></h5>
+          <h6 class="card-subtitle mb-2 text-muted">Usuário: Karine</h6>
+          <p class="card-text"><%= comment.body %></p>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <div>
+    <h3> Insira um comentário: </h3>
+    <%= simple_form_for [@article, @article.comments.build] do |f| %>
+      <p>
+        <%= f.input :body, input_html: { rows: 2 } %>
+      </p>
+
+      <p>
+        <%= f.button :submit, 'Salvar', class: 'btn btn-primary' %>
+      </p>
+    <% end %>
+  </div>
 </article>
