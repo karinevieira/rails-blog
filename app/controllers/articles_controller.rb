@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController
-  before_action :set_article, only: [:show, :edit, :update, :destroy]
+  before_action :set_article, only: [:edit, :update, :destroy]
   before_action :set_categories, only: [:new, :create, :edit, :update]
   
   def index
@@ -28,6 +28,7 @@ class ArticlesController < ApplicationController
   end
 
   def show
+    @article = Article.includes(:comments).find(params[:id])
   end
 
   def new
