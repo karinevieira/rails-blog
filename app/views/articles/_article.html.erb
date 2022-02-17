@@ -1,11 +1,11 @@
 <article class="blog-post">
   <h2 class="blog-post-title"><%= article.title %></h2>
-  <p class="blog-post-meta"><%= article.created_at.strftime('%B %e, %Y') %> by <a href="#">Karine</a> in <%= article.category.name %></p>
+  <p class="blog-post-meta"><%= l(article.created_at, format: '%B %e, %Y').capitalize %> <%= t 'app.word.by' %> <a href="#">Karine</a> <%= t 'app.word.in' %> <%= article.category.name %></p>
 
   <p><%= truncate(article.body, length: 150) %></p>
 
-  <p><%= link_to 'Continue lendo...', article, class: 'btn btn-link' %></p>
+  <p><%= link_to t('articles.continue_reading'), article, class: 'btn btn-link' %></p>
 
-  <%= link_to 'Editar', edit_article_path(article), class: 'btn btn-secondary' %>
-  <%= link_to 'Excluir', article_path(article), method: :delete, data: {confirm: 'Você tem certeza?'}, class: 'btn btn-danger' %>
+  <%= link_to t('app.button.edit'), edit_article_path(article), class: 'btn btn-secondary' %>
+  <%= link_to t('app.button.destroy'), article_path(article), method: :delete, data: {confirm: t('app.message.confirm_destroy')}, class: 'btn btn-danger' %>
 </article>

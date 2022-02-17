@@ -1,12 +1,12 @@
 <%= simple_form_for @article do |f| %>
   <%= f.input :title %>
   <%= f.input :body, input_html: { rows: 10 } %>
-  <%= f.association :category, collection: @categories, prompt: "Selecione" %>
+  <%= f.association :category, collection: @categories, prompt: t('articles.form.choose_category') %>
   <br>
 
   <p>
-    <%= link_to 'Voltar', root_path, class: 'btn btn-secondary' %>
-    <%= f.button :submit, 'Salvar', class: 'btn btn-primary' %>
+    <%= link_to t('app.button.back'), root_path, class: 'btn btn-secondary' %>
+    <%= f.button :submit, class: 'btn btn-primary' %>
   </p>
 
 <% end %>

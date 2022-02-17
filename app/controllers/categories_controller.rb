@@ -12,7 +12,7 @@ class CategoriesController < ApplicationController
     @category = Category.new(category_params)
 
     if @category.save
-      redirect_to categories_path, notice: 'Categoria criada com sucesso!'
+      redirect_to categories_path, notice: t('app.create.success', model: Category.model_name.human)
     else
       render :new
     end
@@ -23,7 +23,7 @@ class CategoriesController < ApplicationController
 
   def update
     if @category.update(category_params)
-      redirect_to categories_path, notice: 'Categoria atualizada com sucesso!'
+      redirect_to categories_path, notice: t('app.update.success', model: Category.model_name.human)
     else
       render :edit
     end
@@ -31,7 +31,7 @@ class CategoriesController < ApplicationController
 
   def destroy
     if @category.destroy
-      redirect_to categories_path, notice: 'Categoria excluída com sucesso!'
+      redirect_to categories_path, notice: t('app.destroy.success', model: Category.model_name.human)
     else
       redirect_to categories_path, alert: @category.errors.messages[:base][0]
     end

@@ -1,0 +1,29 @@
+pt-BR:
+  app:
+    title: Rails Blog
+    menu:
+      categories: Categorias
+    footer:
+      back_to_top: Voltar ao início
+      template_info: Modelo de blog criado para
+    pagination:
+      older: Anterior
+      newer: Próximo
+    word:
+      by: por
+      in: em
+      actions: Ações
+    button:
+      back: Voltar
+      destroy: Excluir
+      edit: Alterar
+    edit:
+      title: "Alterando %{model}"
+    message:
+      confirm_destroy: Você tem certeza que deseja excluir?
+    create:
+      success: "%{model} foi criado(a) com sucesso."
+    update:
+      success: "%{model} foi alterado(a) com sucesso."
+    destroy:
+      success: "%{model} foi excluído(a) com sucesso."

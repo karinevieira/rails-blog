@@ -23,7 +23,7 @@ class ArticlesController < ApplicationController
                        .page(current_page)
                        .per(10)
 
-    @archives = Article.group_by_month(:created_at, format: '%B %Y').count
+    @archives = Article.group_by_month(:created_at, format: '%B %Y', locale: :en).count
     
   end
 
@@ -39,7 +39,7 @@ class ArticlesController < ApplicationController
     @article = Article.new(article_params)
  
     if @article.save
-      redirect_to @article, notice: 'Artigo criado com sucesso!'
+      redirect_to @article, notice: t('.success')
     else
       flash[:alert] = "Falha ao criar o artigo"
       render :new
@@ -51,7 +51,7 @@ class ArticlesController < ApplicationController
 
   def update
     if @article.update(article_params)
-      redirect_to @article, notice: 'Artigo atualizado com sucesso!'
+      redirect_to @article, notice: t('.success')
     else
       flash[:alert] = "Falha ao atualizar o artigo"
       render :edit
@@ -60,7 +60,7 @@ class ArticlesController < ApplicationController
 
   def destroy
     if @article.destroy
-      redirect_to root_path, notice: 'Artigo excluído com sucesso!'
+      redirect_to root_path, notice: t('.success')
     else
       redirect_to root_path, notice: 'Falha ao excluir artigo'
     end

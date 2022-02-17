@@ -1,0 +1,29 @@
+en:
+  app:
+    title: Rails Blog
+    menu:
+      categories: Categories
+    footer:
+      back_to_top: Back to top
+      template_info: Blog template built for
+    pagination:
+      older: Older
+      newer: Newer
+    word:
+      by: by
+      in: in
+      actions: Actions
+    button:
+      back: Back
+      destroy: Destroy
+      edit: Edit
+    edit:
+      title: "Editing %{model}"
+    message:
+      confirm_destroy: Are you sure?
+    create:
+      success: "%{model} was successfully created."
+    update:
+      success: "%{model} was successfully updated."
+    destroy:
+      success: "%{model} was successfully destroyed."

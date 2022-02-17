@@ -1,13 +1,13 @@
-<h1> Categorias </h1>
+<h1 class="mb-3"> <%= t Category.model_name.human(count: 2) %> </h1>
 <div>
-  <%= link_to 'Nova Categoria', new_category_path, class: 'btn btn-primary' %>
+  <%= link_to t('categories.new.title', model: Category.model_name.human), new_category_path, class: 'btn btn-primary mb-3' %>
 </div>
 
 <table class="table table-hover">
   <thead>
     <tr>
-      <th scope="col">Nome</th>
-      <th scope="col">Ações</th>
+      <th scope="col"><%= t Category.human_attribute_name('name') %></th>
+      <th scope="col"></th>
     </tr>
   </thead>
   <tbody>
@@ -15,8 +15,8 @@
       <tr>
         <td><%= category.name %></td>
         <td>
-          <%= link_to 'Editar', edit_category_path(category), class: 'btn btn-secondary' %>
-          <%= link_to 'Excluir', category_path(category), method: :delete, data: {confirm: 'Você tem certeza?'}, class: 'btn btn-danger' %>
+          <%= link_to t('app.button.edit'), edit_category_path(category), class: 'btn btn-secondary' %>
+          <%= link_to t('app.button.destroy'), category_path(category), method: :delete, data: {confirm: t('app.message.confirm_destroy')}, class: 'btn btn-danger' %>
         </td>
       </tr>
     <% end %>

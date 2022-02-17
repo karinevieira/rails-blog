@@ -4,11 +4,11 @@
       <strong class="d-inline-block mb-2 text-primary"><%= article.category.name %></strong>
       <h3 class="mb-0"><%= article.title %></h3>
 
-      <div class="mb-1 text-muted"><%= article.created_at.strftime('%B %e, %Y') %></div>
+      <div class="mb-1 text-muted"><%= l(article.created_at, format: '%B %e, %Y').capitalize %></div>
 
       <p class="card-text mb-auto"><%= truncate(article.body, length: 150) %></p>
 
-      <%= link_to 'Continue lendo', article, class: 'stretched-link' %>
+      <%= link_to t('articles.continue_reading'), article, class: 'stretched-link' %>
       
     </div>
     <div class="col-auto d-none d-lg-block">
