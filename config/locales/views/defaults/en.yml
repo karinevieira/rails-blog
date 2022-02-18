@@ -23,7 +23,10 @@ en:
       confirm_destroy: Are you sure?
     create:
       success: "%{model} was successfully created."
+      error: "Failed to Create %{model}"
     update:
       success: "%{model} was successfully updated."
+      error: "Failed to Update %{model}"
     destroy:
       success: "%{model} was successfully destroyed."
+      error: "Failed to Destroy %{model}"

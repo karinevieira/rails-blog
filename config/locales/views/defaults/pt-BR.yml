@@ -23,7 +23,10 @@ pt-BR:
       confirm_destroy: Você tem certeza que deseja excluir?
     create:
       success: "%{model} foi criado(a) com sucesso."
+      error: "Falha ao Criar %{model}"
     update:
       success: "%{model} foi alterado(a) com sucesso."
+      error: "Falha ao Atualizar %{model}"
     destroy:
       success: "%{model} foi excluído(a) com sucesso."
+      error: "Falha ao Excluir %{model}"

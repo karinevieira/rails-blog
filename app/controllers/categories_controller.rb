@@ -14,6 +14,7 @@ class CategoriesController < ApplicationController
     if @category.save
       redirect_to categories_path, notice: t('app.create.success', model: Category.model_name.human)
     else
+      flash[:alert] = t('app.create.error', model: Category.model_name.human)
       render :new
     end
   end
@@ -25,6 +26,7 @@ class CategoriesController < ApplicationController
     if @category.update(category_params)
       redirect_to categories_path, notice: t('app.update.success', model: Category.model_name.human)
     else
+      flash[:alert] = t('app.update.error', model: Category.model_name.human)
       render :edit
     end
   end

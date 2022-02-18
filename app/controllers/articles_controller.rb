@@ -41,7 +41,7 @@ class ArticlesController < ApplicationController
     if @article.save
       redirect_to @article, notice: t('.success')
     else
-      flash[:alert] = "Falha ao criar o artigo"
+      flash[:alert] = t('app.create.error', model: Article.model_name.human)
       render :new
     end
   end
@@ -53,7 +53,7 @@ class ArticlesController < ApplicationController
     if @article.update(article_params)
       redirect_to @article, notice: t('.success')
     else
-      flash[:alert] = "Falha ao atualizar o artigo"
+      flash[:alert] = t('app.update.error', model: Article.model_name.human)
       render :edit
     end
   end
@@ -62,7 +62,7 @@ class ArticlesController < ApplicationController
     if @article.destroy
       redirect_to root_path, notice: t('.success')
     else
-      redirect_to root_path, notice: 'Falha ao excluir artigo'
+      redirect_to root_path, alert: t('app.destroy.error', model: Article.model_name.human)
     end
   end
 
