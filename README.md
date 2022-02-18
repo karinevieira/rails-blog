@@ -1,7 +1,7 @@
 
 # Rails Blog
 
-Building a blog using Bootstrap 5 with Ruby on Rails 6 in MVC pattern.
+Building a blog using Bootstrap 5 with Ruby on Rails 5 in MVC pattern.
 
 |               |            |
 |---------------|------------|
