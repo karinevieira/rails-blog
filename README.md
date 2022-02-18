@@ -1,24 +1,33 @@
-# README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Rails Blog
 
-Things you may want to cover:
+Building a blog using Bootstrap 5 with Ruby on Rails 6 in MVC pattern.
 
-* Ruby version
+|               |            |
+|---------------|------------|
+| Ruby Version  | 2.5.8      |
+| Rails Version | 5.0.0.1    |
+| Database      | PostgreSQL |
 
-* System dependencies
 
-* Configuration
 
-* Database creation
+## Installation
 
-* Database initialization
+```bash
+  # clone the project
+  git clone https://github.com/karinevieira/rails-blog.git
 
-* How to run the test suite
+  # enter the cloned directory
+  cd rails-blog
 
-* Services (job queues, cache servers, search engines, etc.)
+  # run the project
+  docker-compose up --build
 
-* Deployment instructions
+  # create the development and test databases
+  rake db:create
 
-* ...
+  # migrate tables to database
+  rake db:migrate
+```
+Open the browser at the address http://localhost:3000 
+    
