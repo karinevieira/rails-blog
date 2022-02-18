@@ -1,14 +1,16 @@
 class ArticlesController < ApplicationController
   before_action :set_article, only: [:edit, :update, :destroy]
-  before_action :set_categories, only: [:new, :create, :edit, :update]
+  before_action :set_categories, only: [:index, :new, :create, :edit, :update]
   
   def index
-    @categories = Category.sorted
-    category = @categories.select { |c| c.name == params[:category] }.first if params[:category].present?
+    @archives = Article.group_by_month(:created_at, format: '%B %Y', locale: :en).count
+
+    category = @categories.find { |c| c.name == params[:category] } if params[:category].present?
+    month_year = @archives.find { |m| m[0] == params[:month_year] }&.first if params[:month_year].present?
 
     @highlights = Article.includes(:category)
                          .filter_by_category(category)
-                         .filter_by_archive(params[:month_year])
+                         .filter_by_archive(month_year)
                          .desc_order
                          .first(3)
     
@@ -18,12 +20,10 @@ class ArticlesController < ApplicationController
     @articles = Article.includes(:category)
                        .without_highlights(highlights_ids)
                        .filter_by_category(category)
-                       .filter_by_archive(params[:month_year])
+                       .filter_by_archive(month_year)
                        .desc_order
                        .page(current_page)
                        .per(10)
-
-    @archives = Article.group_by_month(:created_at, format: '%B %Y', locale: :en).count
     
   end
 
